@@ -30,12 +30,17 @@ $app->map ( "/users(/:id)", function ($elementID = null) use($app) {
 			
 			break;
 		case "POST" :
-			$newAlhanumericalID = "i" . rand(0,100);
-			$_SESSION ["localUserList"][$newAlhanumericalID] = $decBody["name"];
 			
-			$responseBody = $_SESSION ["localUserList"][$newAlhanumericalID];
-			$respondeCode = HTTPSTATUS_CREATED;
+			if($decBody["name"] != NULL){
+				$newAlhanumericalID = "i" . rand(0,100);
+				$_SESSION ["localUserList"][$newAlhanumericalID] = $decBody["name"];
 			
+				$responseBody = $_SESSION ["localUserList"][$newAlhanumericalID];
+				$respondeCode = HTTPSTATUS_CREATED;
+				}
+				else
+					$respondeCode = HTTPSTATUS_BADREQUEST;
+				
 			break;
 		case "PUT" :
 			$_SESSION ["localUserList"][$elementID] = $decBody["name"];

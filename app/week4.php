@@ -43,10 +43,12 @@ $app->map ( "/users(/:id)", function ($elementID = null) use($app) {
 				
 			break;
 		case "PUT" :
-			$_SESSION ["localUserList"][$elementID] = $decBody["name"];
-			$responseBody = $_SESSION ["localUserList"][$elementID];
-			$respondeCode = HTTPSTATUS_OK;
-			
+			if($elementID != NULL){
+				$_SESSION ["localUserList"][$elementID] = $decBody["name"];
+				$responseBody = $_SESSION ["localUserList"][$elementID];
+				$respondeCode = HTTPSTATUS_OK;
+			}
+			else $respondeCode = HTTPSTATUS_BADREQUEST;
 			break;
 		case "DELETE" :
 			

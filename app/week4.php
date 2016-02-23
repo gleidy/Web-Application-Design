@@ -1,4 +1,7 @@
 <?php
+/**
+ * @author Greg Leidy
+ */
 session_start ();
 
 require_once "../Slim/Slim.php";
@@ -51,11 +54,13 @@ $app->map ( "/users(/:id)", function ($elementID = null) use($app) {
 			else $respondeCode = HTTPSTATUS_BADREQUEST;
 			break;
 		case "DELETE" :
-			
-			//unset($_SESSION ["localUserList"][$elementID]);
-			$_SESSION ["localUserList"][$elementID] = NULL;
-			$responseBody = $_SESSION ["localUserList"][$elementID];
-			$respondeCode = HTTPSTATUS_OK;
+			if($elementID != null){
+				//unset($_SESSION ["localUserList"][$elementID]);
+				$_SESSION ["localUserList"][$elementID] = NULL;
+				$responseBody = $_SESSION ["localUserList"][$elementID];
+				$respondeCode = HTTPSTATUS_OK;
+			}
+			else $respondeCode = HTTPSTATUS_BADREQUEST;
 			
 			break;
 	}

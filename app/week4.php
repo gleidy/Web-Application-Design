@@ -1,4 +1,7 @@
 <?php
+/**
+ * @author Greg Leidy
+ */
 session_start ();
 
 require_once "../Slim/Slim.php";

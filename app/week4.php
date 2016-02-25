@@ -46,7 +46,7 @@ $app->map ( "/users(/:id)", function ($elementID = null) use($app) {
 				
 			break;
 		case "PUT" :
-			if($elementID != NULL){
+			if(!empty($decBody["name"])){
 				$_SESSION ["localUserList"][$elementID] = $decBody["name"];
 				$responseBody = $_SESSION ["localUserList"][$elementID];
 				$respondeCode = HTTPSTATUS_OK;

@@ -24,7 +24,8 @@ class UsersDAO {
 		$pass = $parametersArray["password"];
 		
 		$queryString ="INSERT INTO `users` (`name`, `surname`, `email`,`password`) VALUES ('".$first."','".$last."','".$email."','".$pass."')";
-		
+		echo $queryString;
+
 		
 		$this->dbManager->openConnection();
 		$this->dbManager->executeQuery($queryString);		

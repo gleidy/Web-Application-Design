@@ -19,4 +19,16 @@ define ( "HTTPSTATUS_TOKENREQUIRED", 499 );
 /* HTTP status codes 5xx */
 define ( "HTTPSTATUS_INTSERVERERR", 500 );
 
+
+/*DB Variables */
+
+define("DB_HOST", "localhost");
+define("DB_USER", "root");
+define("DB_PASS", "");
+define("DB_NAME", "users");
+define("DB_CHARSET", "utf8");
+define("DB_DEBUGMODE", "false");
+define("DB_VENDOR", "mysql");
+
+
 ?>

@@ -49,7 +49,7 @@ class UserModel {
 		//TODO
 	}
 	public function searchUsers($string) {
-		//TODO
+		return ($this->UsersDAO->search($string));
 	}
 	public function deleteUser($userID) {
 		//TODO

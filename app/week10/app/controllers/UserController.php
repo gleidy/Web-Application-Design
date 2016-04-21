@@ -28,8 +28,8 @@ class UserController {
 				$this->deleteUser ( $id );
 				break;
 			case ACTION_SEARCH_USERS :
-				$string = $parameteres ["SearchingString"];
-				$this->searchUsers ( $string );
+				//$string = $parameteres ["SearchingString"];
+				$this->searchUsers ( $id );
 				break;
 			case null :
 				$this->slimApp->response ()->setStatus ( HTTPSTATUS_BADREQUEST );
